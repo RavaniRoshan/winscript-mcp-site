@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "on-secondary-container": "#525252",
+                    "on-secondary": "#ffffff",
+                    "on-primary": "#ffffff",
+                    "tertiary-fixed-dim": "#42be65",
+                    "surface-container-low": "#f4f4f4",
+                    "primary-fixed": "#d0e2ff",
+                    "surface-variant": "#f4f4f4",
+                    "on-surface": "#161616",
+                    "surface-tint": "#0f62fe",
+                    "outline-variant": "#e0e0e0",
+                    "surface-container-highest": "#c6c6c6",
+                    "primary": "#0f62fe",
+                    "inverse-on-surface": "#f4f4f4",
+                    "secondary-container": "#e0e0e0",
+                    "outline": "#8d8d8d",
+                    "inverse-surface": "#393939",
+                    "surface-bright": "#ffffff",
+                    "secondary-fixed-dim": "#c6c6c6",
+                    "primary-fixed-dim": "#78a9ff",
+                    "on-primary-fixed-variant": "#0043ce",
+                    "inverse-primary": "#78a9ff",
+                    "surface": "#ffffff",
+                    "tertiary-container": "#a7f0ba",
+                    "surface-container": "#f4f4f4",
+                    "tertiary-fixed": "#a7f0ba",
+                    "on-tertiary-container": "#044317",
+                    "secondary": "#6f6f6f",
+                    "on-tertiary-fixed-variant": "#044317",
+                    "on-tertiary": "#ffffff",
+                    "on-primary-container": "#161616",
+                    "primary-container": "#d0e2ff",
+                    "on-error-container": "#750e13",
+                    "surface-container-lowest": "#ffffff",
+                    "error-container": "#fff1f1",
+                    "tertiary": "#198038",
+                    "error": "#da1e28",
+                    "surface-container-high": "#e0e0e0",
+                    "on-secondary-fixed-variant": "#525252",
+                    "secondary-fixed": "#e0e0e0",
+                    "background": "#ffffff",
+                    "on-tertiary-fixed": "#022d0d",
+                    "on-secondary-fixed": "#161616",
+                    "on-primary-fixed": "#001d6c",
+                    "on-background": "#161616",
+                    "surface-dim": "#e0e0e0",
+                    "on-surface-variant": "#525252",
+                    "on-error": "#ffffff"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.125rem",
+                    "lg": "0.25rem",
+                    "xl": "0.5rem",
+                    "full": "0.75rem"
+            },
+            "fontFamily": {
+                    "headline": ["IBM Plex Sans"],
+                    "body": ["IBM Plex Sans"],
+                    "label": ["IBM Plex Sans"]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        body { font-family: 'IBM Plex Sans', sans-serif; }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .code-container {
+            background-color: #161616;
+            color: #f4f4f4;
+            padding: 1rem;
+            font-family: monospace;
+            font-size: 0.875rem;
+        }
+        .zebra-table tr:nth-child(even) {
+            background-color: #f4f4f4;
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background antialiased flex flex-col min-h-screen">
+<!-- TopAppBar -->
+<header class="fixed top-0 w-full z-50 bg-white dark:bg-neutral-900 border-b border-neutral-200 dark:border-neutral-800 flex items-center justify-between px-4 h-12 w-full">
+<div class="flex items-center gap-8">
+<span class="text-lg font-semibold tracking-tighter text-neutral-900 dark:text-white">winscript</span>
+<nav class="hidden md:flex gap-6 items-center">
+<a class="font-sans text-sm tracking-tight text-blue-600 dark:text-blue-500 border-b-2 border-blue-600 pb-1" href="#">Docs</a>
+<a class="font-sans text-sm tracking-tight text-neutral-600 dark:text-neutral-400 hover:bg-neutral-100 dark:hover:bg-neutral-800 transition-colors cursor-pointer active:opacity-70" href="#">API</a>
+<a class="font-sans text-sm tracking-tight text-neutral-600 dark:text-neutral-400 hover:bg-neutral-100 dark:hover:bg-neutral-800 transition-colors cursor-pointer active:opacity-70" href="#">Examples</a>
+<a class="font-sans text-sm tracking-tight text-neutral-600 dark:text-neutral-400 hover:bg-neutral-100 dark:hover:bg-neutral-800 transition-colors cursor-pointer active:opacity-70" href="#">Community</a>
+</nav>
+</div>
+<div class="flex items-center gap-4">
+<div class="hidden lg:flex items-center bg-surface-container px-3 py-1 border-b border-outline">
+<span class="material-symbols-outlined text-secondary text-sm">search</span>
+<input class="bg-transparent border-none focus:ring-0 text-xs w-48" placeholder="Search..." type="text"/>
+</div>
+<div class="flex gap-2">
+<button class="p-1 hover:bg-neutral-100 dark:hover:bg-neutral-800 transition-colors">
+<span class="material-symbols-outlined text-neutral-600 dark:text-neutral-400" data-icon="terminal">terminal</span>
+</button>
+<button class="p-1 hover:bg-neutral-100 dark:hover:bg-neutral-800 transition-colors">
+<span class="material-symbols-outlined text-neutral-600 dark:text-neutral-400" data-icon="settings">settings</span>
+</button>
+</div>
+<button class="bg-primary text-on-primary px-4 py-2 text-sm font-medium hover:brightness-110 transition-all">Get Started</button>
+</div>
+</header>
+<main class="flex-grow pt-12">
+<!-- Hero Section -->
+<section class="relative bg-white border-b border-outline-variant overflow-hidden">
+<div class="max-w-7xl mx-auto px-6 py-24 md:py-32 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+<div class="z-10">
+<div class="inline-flex items-center gap-2 bg-primary-container px-3 py-1 mb-6">
+<span class="text-[10px] font-bold uppercase tracking-widest text-on-primary-container">v1.2.0-stable</span>
+</div>
+<h1 class="text-5xl md:text-7xl font-bold tracking-tight text-on-background mb-6 leading-[1.1]">
+                        AppleScript for Windows — exposed as an <span class="text-primary">MCP server.</span>
+</h1>
+<p class="text-xl text-on-surface-variant mb-10 max-w-lg leading-relaxed">
+                        Unified automation for the Windows ecosystem. Control Win32 apps, COM interfaces, and UIA elements through a modern Model Context Protocol interface.
+                    </p>
+<div class="flex flex-wrap gap-4">
+<button class="bg-primary text-on-primary px-8 py-3 text-base font-semibold hover:bg-blue-700 transition-colors flex items-center gap-2">
+                            Get Started
+                            <span class="material-symbols-outlined" data-icon="arrow_forward">arrow_forward</span>
+</button>
+<div class="flex items-center gap-3 bg-surface-container-low border border-outline-variant px-6 py-3 font-mono text-sm group cursor-pointer active:bg-secondary-container">
+<span class="text-primary font-bold">$</span>
+<span class="text-on-surface">npx winscript</span>
+<span class="material-symbols-outlined text-secondary ml-4 opacity-0 group-hover:opacity-100 transition-opacity" data-icon="content_copy">content_copy</span>
+</div>
+</div>
+</div>
+<div class="relative">
+<div class="bg-surface-container h-[400px] w-full p-4 border border-outline-variant shadow-lg relative overflow-hidden">
+<div class="absolute top-0 left-0 w-full h-1 bg-primary"></div>
+<div class="flex items-center gap-2 mb-4">
+<div class="w-3 h-3 rounded-full bg-error"></div>
+<div class="w-3 h-3 rounded-full bg-secondary"></div>
+<div class="w-3 h-3 rounded-full bg-tertiary"></div>
+</div>
+<pre class="font-mono text-sm leading-6"><span class="text-secondary"># query desktop for excel window</span>
+<span class="text-primary">winscript</span>.app(<span class="text-tertiary">"Excel"</span>).run(<span class="text-tertiary">"SetCell('A1', 'Automated')"</span>)
+
+<span class="text-secondary">// Through MCP Protocol</span>
+<span class="text-primary">mcp</span>.call(<span class="text-tertiary">"winscript/execute"</span>, {
+  target: <span class="text-tertiary">"SystemTray"</span>,
+  action: <span class="text-tertiary">"click"</span>,
+  label: <span class="text-tertiary">"Network"</span>
+})</pre>
+<div class="absolute bottom-4 right-4">
+<img class="opacity-50" data-alt="Schematic wireframe of a windows desktop interface with highlighted automation nodes and glowing connection paths" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB36V84toUf2fndpgp_FAY7Yawnnpdx1SY6xBFL9PKfmWt1Ulyjb8q9nQubDOCF9BqynFTetLcIxyfYcbplwMO_PEGJvkUeKVPOts9D7Eq5rkHn-oAz7T2Tx2nawLkVbjniUgWLa2tVuvc1DBjTEsJJIVLR0juhkjoFRetgGwgDztlHyB_Ris0YAILH6uXG0jWEYLtzTMaF6Lc7m9oh6f1K4wtgyXlAOyJI2yOgMpzNaca8R1aGgJQfmDHGAfT1xBv-y26SYHkciXE"/>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- The Gap Comparison -->
+<section class="py-24 bg-surface">
+<div class="max-w-7xl mx-auto px-6">
+<div class="mb-16">
+<h2 class="text-3xl font-bold mb-4">The Productivity Gap</h2>
+<p class="text-on-surface-variant max-w-2xl">Windows automation has historically been fragmented across disparate technologies. WinScript unifies them into a single developer-friendly interface.</p>
+</div>
+<div class="overflow-x-auto">
+<table class="w-full text-left border-collapse zebra-table">
+<thead>
+<tr class="border-b-2 border-on-background bg-white">
+<th class="p-4 font-bold text-sm uppercase tracking-wider">Feature</th>
+<th class="p-4 font-bold text-sm uppercase tracking-wider">macOS (AppleScript)</th>
+<th class="p-4 font-bold text-sm uppercase tracking-wider bg-primary-container">WinScript (Windows)</th>
+<th class="p-4 font-bold text-sm uppercase tracking-wider">Traditional Windows</th>
+</tr>
+</thead>
+<tbody class="text-sm">
+<tr>
+<td class="p-4 font-medium">Syntax Style</td>
+<td class="p-4">Natural Language (OSA)</td>
+<td class="p-4 font-semibold text-primary">Modern JS/JSON (MCP)</td>
+<td class="p-4">PowerShell / C# / VB</td>
+</tr>
+<tr>
+<td class="p-4 font-medium">App Discovery</td>
+<td class="p-4">Dictionary (SDEF)</td>
+<td class="p-4 font-semibold text-primary">UIA + COM Reflection</td>
+<td class="p-4">Manual API Hooking</td>
+</tr>
+<tr>
+<td class="p-4 font-medium">LLM Ready</td>
+<td class="p-4">Limited (Context missing)</td>
+<td class="p-4 font-semibold text-primary">Native MCP Server</td>
+<td class="p-4">No native protocol</td>
+</tr>
+<tr>
+<td class="p-4 font-medium">Target Ecosystem</td>
+<td class="p-4">First-party Apps</td>
+<td class="p-4 font-semibold text-primary">Cross-process UI/Data</td>
+<td class="p-4">Win32 API legacy</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</section>
+<!-- Architecture Diagram Section (Bento Grid Style) -->
+<section class="py-24 bg-surface-container-low border-t border-outline-variant">
+<div class="max-w-7xl mx-auto px-6">
+<div class="mb-12 text-center">
+<h2 class="text-3xl font-bold mb-4">Unified Architecture</h2>
+<p class="text-on-surface-variant">Bridging the gap between AI Agents and the Windows Desktop.</p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-6 h-auto md:h-[600px]">
+<!-- Block 1: MCP Client -->
+<div class="md:col-span-1 bg-white p-8 border border-outline-variant flex flex-col justify-between">
+<div>
+<div class="w-12 h-12 bg-primary-container flex items-center justify-center mb-6">
+<span class="material-symbols-outlined text-primary" data-icon="psychology">psychology</span>
+</div>
+<h3 class="text-xl font-bold mb-4">MCP Client</h3>
+<p class="text-on-surface-variant text-sm">Claude Desktop, Cursor, or your custom LLM application connecting via standard protocol.</p>
+</div>
+<div class="border-t border-outline-variant pt-4 mt-6">
+<span class="text-[10px] font-bold text-secondary uppercase">Transport</span>
+<div class="text-sm font-mono mt-1">stdio / EventSource</div>
+</div>
+</div>
+<!-- Block 2: WinScript Core (The Middle) -->
+<div class="md:col-span-1 bg-primary p-8 flex flex-col justify-between text-on-primary">
+<div>
+<div class="w-12 h-12 bg-white/20 flex items-center justify-center mb-6">
+<span class="material-symbols-outlined text-white" data-icon="alt_route">alt_route</span>
+</div>
+<h3 class="text-xl font-bold mb-4">WinScript Runtime</h3>
+<p class="text-white/80 text-sm">The translation engine that maps abstract agent intents to concrete Windows system calls.</p>
+</div>
+<div class="mt-8">
+<img class="w-full mix-blend-overlay opacity-50" data-alt="Abstract technical diagram showing data packets flowing through a central processing hub with logical gates" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCv2A3lCmxw2dyLzcEYRbX8DElUbKhmz_RgqdBHMmP0FpY1pQ4lf0YPtNXvNuEtU5av4Z0PD1Z3Thzd0fRvMtT43mZcNbnFuvZep0XyA_j4JyzZD95gzr1FQ4-4jQEossfy6Fj4At_5N0YGRev3ikUrRgcGBMklfs6_Ky1iXw3hjVStVDppQt1tZd6cgCXWBLtS5PFzb4uju7-aCHpEFU6a_7onTXekMo4nKoAURQXs92GcTvF8N9NfRDaeZyMC7VzMo48BGrgWqn8"/>
+</div>
+</div>
+<!-- Block 3: The Stack (Right) -->
+<div class="md:col-span-1 flex flex-col gap-6">
+<div class="flex-grow bg-white border border-outline-variant p-6">
+<h4 class="font-bold mb-2 flex items-center gap-2">
+<span class="material-symbols-outlined text-primary" data-icon="dataset">dataset</span>
+                                COM / OLE
+                            </h4>
+<p class="text-xs text-on-surface-variant">Deep integration with Office 365, Adobe Creative Cloud, and legacy Enterprise ERPs.</p>
+</div>
+<div class="flex-grow bg-white border border-outline-variant p-6">
+<h4 class="font-bold mb-2 flex items-center gap-2">
+<span class="material-symbols-outlined text-primary" data-icon="web_asset">web_asset</span>
+                                UI Automation
+                            </h4>
+<p class="text-xs text-on-surface-variant">Direct accessibility-layer access to WinUI, WPF, Electron, and Win32 applications.</p>
+</div>
+<div class="flex-grow bg-white border border-outline-variant p-6">
+<h4 class="font-bold mb-2 flex items-center gap-2">
+<span class="material-symbols-outlined text-primary" data-icon="terminal">terminal</span>
+                                Shell &amp; Registry
+                            </h4>
+<p class="text-xs text-on-surface-variant">Low-level system control via PowerShell Core and Windows Registry hooks.</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- CTA Section -->
+<section class="py-24 bg-white border-t border-outline-variant">
+<div class="max-w-4xl mx-auto text-center px-6">
+<h2 class="text-4xl font-bold mb-8 tracking-tight">Ready to automate Windows with AI?</h2>
+<p class="text-lg text-on-surface-variant mb-10">Join 500+ developers building the future of Windows desktop automation.</p>
+<div class="flex flex-col sm:flex-row justify-center gap-4">
+<button class="bg-primary text-on-primary px-10 py-4 font-bold hover:brightness-110">Get Started Now</button>
+<button class="border border-on-background px-10 py-4 font-bold hover:bg-surface-container transition-colors">Read the Documentation</button>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="w-full mt-auto bg-neutral-100 dark:bg-neutral-900 border-t border-neutral-200 dark:border-neutral-800 flex flex-col md:flex-row justify-between items-center p-8 gap-4">
+<div class="flex flex-col gap-2">
+<span class="font-bold text-neutral-900 dark:text-white">winscript</span>
+<p class="font-sans text-xs text-neutral-500">© 2024 winscript Enterprise. Built for high-performance Windows automation.</p>
+</div>
+<div class="flex gap-8">
+<a class="font-sans text-xs text-neutral-500 hover:text-neutral-900 hover:text-blue-600 transition-colors opacity-100" href="#">Privacy Policy</a>
+<a class="font-sans text-xs text-neutral-500 hover:text-neutral-900 hover:text-blue-600 transition-colors opacity-100" href="#">Terms of Service</a>
+<a class="font-sans text-xs text-neutral-500 hover:text-neutral-900 hover:text-blue-600 transition-colors opacity-100" href="#">Security</a>
+<a class="font-sans text-xs text-neutral-500 hover:text-neutral-900 hover:text-blue-600 transition-colors opacity-100" href="#">Status</a>
+</div>
+</footer>
+</body></html>
