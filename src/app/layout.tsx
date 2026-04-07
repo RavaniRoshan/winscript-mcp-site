@@ -31,11 +31,13 @@ export default function RootLayout({
     <html lang="en" className="scroll-smooth">
       <head>
         <link
-          href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap"
+          href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&family=Sora:wght@400;500;600;700&display=swap"
           rel="stylesheet"
         />
       </head>
-      <body className="font-sans antialiased">{children}</body>
+      <body className="bg-site-bg font-sans antialiased text-site-text">
+        {children}
+      </body>
     </html>
   );
 }

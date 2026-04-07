@@ -1,320 +1,228 @@
 "use client";
 
-import StitchNavbar from "@/components/StitchNavbar";
-import { AlertCircle, Lock } from "lucide-react";
+import DocsShell from "@/components/DocsShell";
+import { AlertCircle, Braces, Lock, Route } from "lucide-react";
+
+const primitives = [
+  {
+    primitive: "App IPC",
+    namespace: "winscript.ipc.*",
+    description:
+      "Low-level inter-process communication for Windows native applications.",
+    latency: "REAL-TIME",
+  },
+  {
+    primitive: "UI Access",
+    namespace: "winscript.ui.anchor.*",
+    description:
+      "Access to accessibility trees, window handles, and visual element queries.",
+    latency: "ASYNC",
+  },
+  {
+    primitive: "Scripting",
+    namespace: "winscript.core.eval.*",
+    description:
+      "Dynamic execution of automation logic with runtime isolation.",
+    latency: "ASYNC",
+  },
+];
 
 export default function APIReference() {
   return (
-    <main className="min-h-screen bg-white">
-      <StitchNavbar />
+    <DocsShell
+      eyebrow="Docs / API Reference"
+      title="System primitives, permission models, and failure semantics."
+      description="The WinScript API surface is designed for agents that need typed tooling, predictable namespaces, and clear recovery behavior when Windows state does not cooperate."
+      activePage="/api"
+      badges={["Typed primitives", "Permission model", "Retry semantics"]}
+      sectionLinks={[
+        { href: "#primitives", label: "System primitives" },
+        { href: "#security", label: "Security model" },
+        { href: "#implementation", label: "Implementation strategy" },
+      ]}
+    >
+      <section
+        id="primitives"
+        className="site-panel rounded-[2rem] p-6 shadow-site sm:p-8"
+      >
+        <div className="flex items-center gap-3">
+          <Braces className="h-5 w-5 text-site-accent-soft" />
+          <h2 className="text-2xl font-semibold tracking-[-0.04em] text-site-text">
+            System primitives
+          </h2>
+        </div>
 
-      <div className="flex pt-12">
-        {/* SideNavBar */}
-        <aside className="fixed left-0 top-12 h-[calc(100vh-48px)] w-64 bg-neutral-50 border-r border-neutral-200 flex flex-col py-4 gap-1">
-          <div className="px-6 mb-6">
-            <div className="text-xs font-bold text-neutral-400 uppercase tracking-widest mb-1">
-              Documentation
-            </div>
-            <div className="text-[10px] text-neutral-500">v1.2.0-stable</div>
-          </div>
-          <nav className="flex flex-col gap-1 px-2">
-            <a
-              href="/docs"
-              className="flex items-center gap-3 px-4 py-2 text-neutral-500 hover:text-neutral-900 hover:bg-neutral-200 text-xs font-medium"
-            >
-              <span className="material-symbols-outlined text-lg">info</span>
-              <span>Introduction</span>
-            </a>
-            <a
-              href="#"
-              className="flex items-center gap-3 px-4 py-2 text-neutral-500 hover:text-neutral-900 hover:bg-neutral-200 text-xs font-medium"
-            >
-              <span className="material-symbols-outlined text-lg">download</span>
-              <span>Installation</span>
-            </a>
-            <a
-              href="#"
-              className="flex items-center gap-3 px-4 py-2 text-neutral-500 hover:text-neutral-900 hover:bg-neutral-200 text-xs font-medium"
-            >
-              <span className="material-symbols-outlined text-lg">psychology</span>
-              <span>Core Concepts</span>
-            </a>
-            <a
-              href="/api"
-              className="flex items-center gap-3 px-4 py-2 text-blue-600 bg-white font-bold border-l-4 border-blue-600 text-xs font-medium"
-            >
-              <span className="material-symbols-outlined text-lg">alt_route</span>
-              <span>MCP Integration</span>
-            </a>
-            <a
-              href="#"
-              className="flex items-center gap-3 px-4 py-2 text-neutral-500 hover:text-neutral-900 hover:bg-neutral-200 text-xs font-medium"
-            >
-              <span className="material-symbols-outlined text-lg">
-                settings_system_daydream
-              </span>
-              <span>Automation Reference</span>
-            </a>
-          </nav>
-        </aside>
+        <p className="mt-5 max-w-3xl text-base leading-8 text-site-muted">
+          Each primitive exposes a different layer of Windows control. Agents can
+          work with one namespace while the runtime decides which surface fits
+          the job and what recovery information needs to come back.
+        </p>
 
-        {/* Main Content Canvas */}
-        <main className="ml-64 pt-12 min-h-screen">
-          <div className="max-w-5xl mx-auto p-12">
-            {/* Breadcrumbs */}
-            <div className="flex items-center gap-2 text-xs text-stitch-secondary mb-8">
-              <span>Docs</span>
-              <span>›</span>
-              <span className="text-neutral-900">API Reference</span>
-            </div>
+        <div className="mt-8 overflow-x-auto rounded-[1.8rem] border border-white/8 bg-white/[0.03]">
+          <table className="w-full border-collapse text-left">
+            <thead>
+              <tr className="text-[11px] uppercase tracking-[0.24em] text-site-soft">
+                <th className="border-b border-white/8 px-5 py-4">Primitive</th>
+                <th className="border-b border-white/8 px-5 py-4">Namespace</th>
+                <th className="border-b border-white/8 px-5 py-4">Description</th>
+                <th className="border-b border-white/8 px-5 py-4">Latency</th>
+              </tr>
+            </thead>
+            <tbody>
+              {primitives.map((primitive) => (
+                <tr
+                  key={primitive.primitive}
+                  className="border-b border-white/8 last:border-b-0"
+                >
+                  <td className="px-5 py-5 text-sm font-medium text-site-text">
+                    {primitive.primitive}
+                  </td>
+                  <td className="px-5 py-5 font-mono text-sm text-site-accent-soft">
+                    {primitive.namespace}
+                  </td>
+                  <td className="px-5 py-5 text-sm leading-7 text-site-muted">
+                    {primitive.description}
+                  </td>
+                  <td className="px-5 py-5">
+                    <span className="rounded-full border border-white/8 bg-white/[0.05] px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.2em] text-site-text">
+                      {primitive.latency}
+                    </span>
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+      </section>
 
-            <section className="mb-16">
-              <h1 className="text-4xl font-light text-neutral-900 mb-4 tracking-tight">
-                API Reference
-              </h1>
-              <p className="text-lg text-stitch-on-surface-variant max-w-2xl leading-relaxed">
-                A comprehensive guide to the WinScript system primitives,
-                permission models, and error handling protocols for enterprise
-                automation.
+      <section
+        id="security"
+        className="grid gap-6 lg:grid-cols-[minmax(0,1.15fr)_minmax(0,0.85fr)]"
+      >
+        <div className="site-panel rounded-[2rem] p-6 shadow-site sm:p-8">
+          <div className="flex items-start justify-between gap-6">
+            <div>
+              <p className="text-[11px] font-semibold uppercase tracking-[0.28em] text-site-accent-soft">
+                Security architecture
               </p>
-            </section>
-
-            {/* API Primitives Table Section */}
-            <section className="mb-16">
-              <div className="flex items-center gap-2 mb-6">
-                <span className="material-symbols-outlined text-stitch-primary">
-                  layers
-                </span>
-                <h2 className="text-xl font-semibold tracking-tight">
-                  System Primitives
-                </h2>
-              </div>
-              <div className="overflow-x-auto">
-                <table className="w-full text-left border-collapse">
-                  <thead>
-                    <tr className="bg-stitch-surface-container-low text-xs font-bold uppercase tracking-wider text-neutral-900">
-                      <th className="p-4 border-b border-stitch-outline-variant">
-                        Primitive
-                      </th>
-                      <th className="p-4 border-b border-stitch-outline-variant">
-                        Namespace
-                      </th>
-                      <th className="p-4 border-b border-stitch-outline-variant">
-                        Description
-                      </th>
-                      <th className="p-4 border-b border-stitch-outline-variant">
-                        Latency Class
-                      </th>
-                    </tr>
-                  </thead>
-                  <tbody className="text-sm">
-                    <tr className="bg-white hover:bg-stitch-surface-container-low">
-                      <td className="p-4 border-b border-stitch-outline-variant font-mono text-stitch-primary">
-                        App IPC
-                      </td>
-                      <td className="p-4 border-b border-stitch-outline-variant text-stitch-secondary">
-                        winscript.ipc.*
-                      </td>
-                      <td className="p-4 border-b border-stitch-outline-variant">
-                        Low-level inter-process communication for Windows native
-                        applications.
-                      </td>
-                      <td className="p-4 border-b border-stitch-outline-variant">
-                        <span className="px-2 py-0.5 bg-stitch-tertiary text-white text-[10px] font-bold">
-                          REAL-TIME
-                        </span>
-                      </td>
-                    </tr>
-                    <tr className="bg-stitch-surface-container-low hover:bg-stitch-surface-container">
-                      <td className="p-4 border-b border-stitch-outline-variant font-mono text-stitch-primary">
-                        UI Access
-                      </td>
-                      <td className="p-4 border-b border-stitch-outline-variant text-stitch-secondary">
-                        winscript.ui.anchor.*
-                      </td>
-                      <td className="p-4 border-b border-stitch-outline-variant">
-                        Access to accessibility trees, window handles, and visual
-                        element querying.
-                      </td>
-                      <td className="p-4 border-b border-stitch-outline-variant">
-                        <span className="px-2 py-0.5 bg-stitch-secondary-container text-stitch-on-secondary-container text-[10px] font-bold">
-                          ASYNC
-                        </span>
-                      </td>
-                    </tr>
-                    <tr className="bg-white hover:bg-stitch-surface-container-low">
-                      <td className="p-4 border-b border-stitch-outline-variant font-mono text-stitch-primary">
-                        Scripting
-                      </td>
-                      <td className="p-4 border-b border-stitch-outline-variant text-stitch-secondary">
-                        winscript.core.eval.*
-                      </td>
-                      <td className="p-4 border-b border-stitch-outline-variant">
-                        Dynamic execution of automation logic with V8-powered
-                        runtime isolation.
-                      </td>
-                      <td className="p-4 border-b border-stitch-outline-variant">
-                        <span className="px-2 py-0.5 bg-stitch-secondary-container text-stitch-on-secondary-container text-[10px] font-bold">
-                          ASYNC
-                        </span>
-                      </td>
-                    </tr>
-                  </tbody>
-                </table>
-              </div>
-            </section>
-
-            {/* Bento Layout for Concepts */}
-            <div className="grid grid-cols-12 gap-6 mb-16">
-              {/* Permission Model */}
-              <div className="col-span-12 lg:col-span-7 bg-stitch-surface-container p-8">
-                <div className="flex items-start justify-between mb-6">
-                  <div>
-                    <div className="text-xs font-bold text-stitch-primary mb-2 uppercase tracking-widest">
-                      Security Architecture
-                    </div>
-                    <h3 className="text-2xl font-semibold mb-2">
-                      Open by Default Model
-                    </h3>
-                  </div>
-                  <Lock className="w-8 h-8 text-stitch-primary opacity-20" />
-                </div>
-                <p className="text-sm text-stitch-on-surface-variant leading-relaxed mb-6">
-                  WinScript utilizes an 'Open by default' permission model within
-                  the defined automation workspace. Unlike restrictive sandboxes,
-                  this model assumes the script has primary visual access to any
-                  application context registered in the{" "}
-                  <code className="bg-white px-1">manifest.json</code>.
-                </p>
-                <div className="grid grid-cols-2 gap-4">
-                  <div className="bg-white p-4 border-l-4 border-stitch-tertiary">
-                    <div className="text-xs font-bold mb-1">Implicit Trust</div>
-                    <div className="text-[11px] text-stitch-secondary">
-                      Standard operations bypass UAC prompts.
-                    </div>
-                  </div>
-                  <div className="bg-white p-4 border-l-4 border-stitch-primary">
-                    <div className="text-xs font-bold mb-1">Scope Bound</div>
-                    <div className="text-[11px] text-stitch-secondary">
-                      Locked to the active user session.
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              {/* Error Handling */}
-              <div className="col-span-12 lg:col-span-5 bg-stitch-error bg-opacity-10 p-8 border border-stitch-error border-opacity-20">
-                <div className="flex items-center gap-3 mb-6">
-                  <AlertCircle className="w-5 h-5 text-stitch-error" />
-                  <h3 className="text-xl font-bold text-stitch-error">
-                    Error Handling
-                  </h3>
-                </div>
-                <h4 className="text-sm font-mono font-bold mb-3 text-stitch-error">
-                  WinScriptMaxRetriesError
-                </h4>
-                <p className="text-xs text-gray-700 leading-relaxed mb-6">
-                  This critical exception is thrown when a system primitive fails
-                  to stabilize after the default (5) or custom retry limit. It
-                  signifies an unrecoverable UI state or a blocked IPC channel.
-                </p>
-                <div className="bg-stitch-on-background p-4 text-white font-mono text-[11px] leading-relaxed">
-                  <pre>{`try {
-  await app.launch();
-} catch (e) {
-  if (e instanceof WinScriptMaxRetriesError) {
-    // Implement fail-over logic
-    console.error("Critical Failure");
-  }
-}`}</pre>
-                </div>
-              </div>
+              <h2 className="mt-4 text-2xl font-semibold tracking-[-0.04em] text-site-text">
+                Open by default inside the automation workspace.
+              </h2>
             </div>
-
-            {/* Detailed Technical Breakdown */}
-            <section className="border-t border-stitch-outline-variant pt-12">
-              <div className="flex flex-col md:flex-row gap-12">
-                <div className="md:w-1/3">
-                  <h3 className="text-lg font-semibold mb-4">
-                    Implementation Strategy
-                  </h3>
-                  <p className="text-sm text-stitch-secondary leading-relaxed">
-                    When designing automation workflows, always prioritize IPC
-                    over UI Access primitives to ensure maximum stability and
-                    minimum visual interference.
-                  </p>
-                  <div className="mt-6 w-full h-48 bg-neutral-200 rounded-none"></div>
-                </div>
-                <div className="md:w-2/3 space-y-8">
-                  <div>
-                    <h4 className="text-sm font-bold mb-2">
-                      1. Requesting Handles
-                    </h4>
-                    <p className="text-sm text-stitch-on-surface-variant leading-relaxed">
-                      Use the <code className="font-mono text-stitch-primary">
-                        getHandle()
-                      </code>{" "}
-                      method to acquire a persistent pointer to target windows.
-                      In the Open by Default model, these handles remain valid for
-                      the duration of the process lifecycle.
-                    </p>
-                  </div>
-                  <div>
-                    <h4 className="text-sm font-bold mb-2">
-                      2. Exception Bubbling
-                    </h4>
-                    <p className="text-sm text-stitch-on-surface-variant leading-relaxed">
-                      The{" "}
-                      <code className="font-mono text-stitch-primary">
-                        WinScriptMaxRetriesError
-                      </code>{" "}
-                      bubbles up from the lowest primitive layer. If an IPC call
-                      fails, the UI layer will NOT automatically attempt to fall
-                      back unless explicitly programmed.
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </section>
+            <Lock className="h-6 w-6 text-site-accent-soft" />
           </div>
 
-          {/* Footer */}
-          <footer className="w-full bg-neutral-100 border-t border-neutral-200 flex flex-col md:flex-row justify-between items-center p-8 gap-4 font-sans text-xs text-neutral-500">
-            <div className="flex flex-col gap-1">
-              <span className="font-bold text-neutral-900">
-                winscript Enterprise
-              </span>
-              <span>© 2024 winscript Enterprise. Built for high-performance Windows automation.</span>
+          <p className="mt-5 text-sm leading-8 text-site-muted">
+            WinScript assumes primary visual access to any application context
+            registered in the automation manifest. That keeps the runtime usable
+            for real work while still bounding execution to the active user
+            session and the surfaces the operator has chosen to expose.
+          </p>
+
+          <div className="mt-8 grid gap-4 md:grid-cols-2">
+            <div className="rounded-[1.5rem] border border-white/8 bg-white/[0.03] p-5">
+              <p className="text-[11px] font-semibold uppercase tracking-[0.24em] text-site-soft">
+                Implicit trust
+              </p>
+              <p className="mt-3 text-sm leading-7 text-site-muted">
+                Standard operations do not require extra prompts once the
+                workspace is configured.
+              </p>
             </div>
-            <div className="flex items-center gap-6">
-              <a
-                href="#"
-                className="text-neutral-500 hover:text-neutral-900 transition-colors"
-              >
-                Privacy Policy
-              </a>
-              <a
-                href="#"
-                className="text-neutral-500 hover:text-neutral-900 transition-colors"
-              >
-                Terms of Service
-              </a>
-              <a
-                href="#"
-                className="text-neutral-500 hover:text-neutral-900 transition-colors"
-              >
-                Security
-              </a>
-              <a
-                href="#"
-                className="text-neutral-500 hover:text-neutral-900 transition-colors"
-              >
-                Status
-              </a>
+            <div className="rounded-[1.5rem] border border-white/8 bg-white/[0.03] p-5">
+              <p className="text-[11px] font-semibold uppercase tracking-[0.24em] text-site-soft">
+                Scope bound
+              </p>
+              <p className="mt-3 text-sm leading-7 text-site-muted">
+                Execution stays locked to the active session and the registered
+                automation context.
+              </p>
             </div>
-          </footer>
-        </main>
-      </div>
-    </main>
+          </div>
+        </div>
+
+        <div className="site-panel rounded-[2rem] p-6 shadow-site sm:p-8">
+          <div className="flex items-center gap-3">
+            <AlertCircle className="h-5 w-5 text-site-accent-soft" />
+            <h2 className="text-2xl font-semibold tracking-[-0.04em] text-site-text">
+              Error handling
+            </h2>
+          </div>
+
+          <p className="mt-5 text-sm font-medium uppercase tracking-[0.24em] text-site-accent-soft">
+            WinScriptMaxRetriesError
+          </p>
+          <p className="mt-4 text-sm leading-8 text-site-muted">
+            This exception is thrown when a system primitive cannot stabilize
+            after the default or custom retry limit. It usually signals an
+            unrecoverable UI state, blocked IPC channel, or missing surface.
+          </p>
+
+          <div className="site-panel-strong mt-6 rounded-[1.5rem] p-5">
+            <pre className="text-xs leading-7 text-site-text sm:text-sm">
+{`try {
+  await app.launch();
+} catch (error) {
+  if (error instanceof WinScriptMaxRetriesError) {
+    console.error("Critical failure");
+  }
+}`}
+            </pre>
+          </div>
+        </div>
+      </section>
+
+      <section
+        id="implementation"
+        className="site-panel rounded-[2rem] p-6 shadow-site sm:p-8"
+      >
+        <div className="flex items-center gap-3">
+          <Route className="h-5 w-5 text-site-accent-soft" />
+          <h2 className="text-2xl font-semibold tracking-[-0.04em] text-site-text">
+            Implementation strategy
+          </h2>
+        </div>
+
+        <div className="mt-8 grid gap-8 md:grid-cols-[minmax(0,0.75fr)_minmax(0,1.25fr)]">
+          <div>
+            <p className="text-sm leading-8 text-site-muted">
+              When designing automation flows, prefer IPC or object-model access
+              before falling back to raw UI actions. That keeps workflows faster,
+              more stable, and less sensitive to visual changes in the desktop.
+            </p>
+          </div>
+
+          <div className="space-y-6">
+            <div className="rounded-[1.5rem] border border-white/8 bg-white/[0.03] p-5">
+              <p className="text-[11px] font-semibold uppercase tracking-[0.24em] text-site-soft">
+                1. Request handles
+              </p>
+              <p className="mt-3 text-sm leading-7 text-site-muted">
+                Acquire persistent pointers to target windows or applications
+                through the appropriate namespace before sending actions.
+              </p>
+            </div>
+            <div className="rounded-[1.5rem] border border-white/8 bg-white/[0.03] p-5">
+              <p className="text-[11px] font-semibold uppercase tracking-[0.24em] text-site-soft">
+                2. Prefer stable channels
+              </p>
+              <p className="mt-3 text-sm leading-7 text-site-muted">
+                Use IPC or COM whenever the application exposes them. Treat raw
+                UI interaction as the control surface of last resort.
+              </p>
+            </div>
+            <div className="rounded-[1.5rem] border border-white/8 bg-white/[0.03] p-5">
+              <p className="text-[11px] font-semibold uppercase tracking-[0.24em] text-site-soft">
+                3. Bubble failures intentionally
+              </p>
+              <p className="mt-3 text-sm leading-7 text-site-muted">
+                Retry logic belongs in the runtime and the caller. Do not assume
+                lower layers will silently recover on behalf of the workflow.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+    </DocsShell>
   );
 }
