@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import "./globals.css";
+import ProductHuntLaunchStrip from "@/components/ProductHuntLaunchStrip";
 
 export const metadata: Metadata = {
   title: "WinScript - AppleScript for Windows | MCP Server for AI Agents",
@@ -36,6 +37,7 @@ export default function RootLayout({
         />
       </head>
       <body className="bg-site-bg font-sans antialiased text-site-text">
+        <ProductHuntLaunchStrip />
         {children}
       </body>
     </html>

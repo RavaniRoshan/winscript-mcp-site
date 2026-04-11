@@ -17,7 +17,7 @@ export default function StitchNavbar() {
   const pathname = usePathname();
 
   return (
-    <header className="fixed inset-x-0 top-3 z-50">
+    <header className="fixed inset-x-0 top-[76px] z-50">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="flex h-12 items-center justify-between rounded-[1.35rem] border border-white/10 bg-[rgba(7,10,16,0.82)] px-4 shadow-site backdrop-blur-xl">
           <div className="flex items-center gap-8">
@@ -89,7 +89,7 @@ export default function StitchNavbar() {
             className="fixed inset-0 z-40 bg-[rgba(3,5,9,0.72)] backdrop-blur-sm"
             onClick={() => setMobileMenuOpen(false)}
           />
-          <div className="fixed inset-x-4 top-16 z-50 rounded-[1.6rem] border border-white/10 bg-[rgba(9,14,21,0.96)] p-5 shadow-site-glow">
+          <div className="fixed inset-x-4 top-[132px] z-50 rounded-[1.6rem] border border-white/10 bg-[rgba(9,14,21,0.96)] p-5 shadow-site-glow">
             <div className="flex items-center justify-between">
               <span className="text-base font-semibold tracking-[-0.04em] text-site-text">
                 winscript

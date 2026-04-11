@@ -129,7 +129,7 @@ export default function Home() {
     <main className="min-h-screen bg-site-bg text-site-text">
       <StitchNavbar />
 
-      <section className="relative isolate overflow-hidden pt-24">
+      <section className="relative isolate overflow-hidden pt-40 sm:pt-44">
         <div className="site-grid absolute inset-0 opacity-30" />
         <div className="site-grid site-grid-fade absolute inset-0 opacity-40" />
         <div className="site-radial-blue animate-pulse-glow absolute left-[-10rem] top-[-4rem] h-[32rem] w-[32rem] blur-3xl" />
