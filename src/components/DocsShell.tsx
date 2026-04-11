@@ -45,14 +45,14 @@ export default function DocsShell({
     <main className="min-h-screen bg-site-bg text-site-text">
       <StitchNavbar />
 
-      <div className="relative overflow-hidden pt-24">
+      <div className="relative overflow-hidden pt-36">
         <div className="site-grid absolute inset-0 opacity-25" />
         <div className="site-grid site-grid-fade absolute inset-0 opacity-35" />
         <div className="site-radial-blue animate-pulse-glow absolute left-[-8rem] top-28 h-[28rem] w-[28rem] blur-3xl" />
 
         <div className="relative mx-auto max-w-7xl px-4 pb-20 sm:px-6 lg:px-8">
           <div className="grid gap-10 lg:grid-cols-[270px_minmax(0,1fr)] lg:items-start">
-            <aside className="lg:sticky lg:top-24">
+            <aside className="lg:sticky lg:top-36">
               <div className="site-panel rounded-[2rem] p-5 shadow-site">
                 <p className="text-[11px] font-semibold uppercase tracking-[0.28em] text-site-soft">
                   Documentation
