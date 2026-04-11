@@ -58,36 +58,8 @@ export default function StitchNavbar() {
   ).padStart(2, "0")}s`;
 
   return (
-    <header className="fixed inset-x-0 top-0 z-50">
-      <div className="mx-auto max-w-7xl px-4 pt-3 sm:px-6 lg:px-8">
-        <div className="mb-3 flex flex-col items-center justify-between gap-3 rounded-2xl border border-white/10 bg-[rgba(9,14,21,0.95)] px-3 py-3 shadow-site backdrop-blur-xl md:flex-row md:px-4">
-          <div className="flex flex-wrap items-center justify-center gap-x-3 gap-y-2 text-center md:justify-start">
-            <span className="rounded-full border border-site-accent/40 bg-site-accent/15 px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.22em] text-site-accent-soft">
-              Product Hunt launch
-            </span>
-            <p className="text-xs text-site-muted">
-              {isLive ? "We are live now. Fuel the rocket with an upvote 🚀" : "Countdown to launch"}
-            </p>
-            {!isLive && (
-              <span className="rounded-full border border-white/12 bg-white/[0.04] px-3 py-1 font-mono text-xs font-medium text-site-text">
-                {timerLabel}
-              </span>
-            )}
-          </div>
-          <a
-            href="https://www.producthunt.com/products/winscript?embed=true&utm_source=badge-featured&utm_medium=badge&utm_campaign=badge-winscript"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <img
-              alt="WinScript - Windows native automation API via MCP for AI desktop control | Product Hunt"
-              width="250"
-              height="54"
-              src="https://api.producthunt.com/widgets/embed-image/v1/featured.svg?post_id=1119785&theme=dark&t=1775917805859"
-            />
-          </a>
-        </div>
-
+    <header className="fixed inset-x-0 top-[76px] z-50">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="flex h-12 items-center justify-between rounded-[1.35rem] border border-white/10 bg-[rgba(7,10,16,0.82)] px-4 shadow-site backdrop-blur-xl">
           <div className="flex items-center gap-8">
             <Link href="/" className="flex items-center gap-3">
@@ -158,7 +130,7 @@ export default function StitchNavbar() {
             className="fixed inset-0 z-40 bg-[rgba(3,5,9,0.72)] backdrop-blur-sm"
             onClick={() => setMobileMenuOpen(false)}
           />
-          <div className="fixed inset-x-4 top-32 z-50 rounded-[1.6rem] border border-white/10 bg-[rgba(9,14,21,0.96)] p-5 shadow-site-glow">
+          <div className="fixed inset-x-4 top-[132px] z-50 rounded-[1.6rem] border border-white/10 bg-[rgba(9,14,21,0.96)] p-5 shadow-site-glow">
             <div className="flex items-center justify-between">
               <span className="text-base font-semibold tracking-[-0.04em] text-site-text">
                 winscript
