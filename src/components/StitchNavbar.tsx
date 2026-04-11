@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { ExternalLink, Github, Menu, X } from "lucide-react";
@@ -12,9 +12,50 @@ const navigation = [
   { name: "Architecture", href: "/architecture" },
 ];
 
+const PRODUCT_HUNT_LAUNCH_ISO = "2026-04-13T00:01:00-07:00";
+
+type CountdownParts = {
+  days: number;
+  hours: number;
+  minutes: number;
+  seconds: number;
+  totalMs: number;
+};
+
+function getCountdownParts(targetMs: number): CountdownParts {
+  const totalMs = targetMs - Date.now();
+  const safeMs = Math.max(0, totalMs);
+
+  const days = Math.floor(safeMs / (1000 * 60 * 60 * 24));
+  const hours = Math.floor((safeMs / (1000 * 60 * 60)) % 24);
+  const minutes = Math.floor((safeMs / (1000 * 60)) % 60);
+  const seconds = Math.floor((safeMs / 1000) % 60);
+
+  return { days, hours, minutes, seconds, totalMs };
+}
+
 export default function StitchNavbar() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const pathname = usePathname();
+  const launchTimeMs = useMemo(() => new Date(PRODUCT_HUNT_LAUNCH_ISO).getTime(), []);
+  const [countdown, setCountdown] = useState<CountdownParts>(() =>
+    getCountdownParts(launchTimeMs),
+  );
+
+  useEffect(() => {
+    const timer = window.setInterval(() => {
+      setCountdown(getCountdownParts(launchTimeMs));
+    }, 1000);
+
+    return () => window.clearInterval(timer);
+  }, [launchTimeMs]);
+
+  const isLive = countdown.totalMs <= 0;
+  const timerLabel = `${String(countdown.days).padStart(2, "0")}d : ${String(
+    countdown.hours,
+  ).padStart(2, "0")}h : ${String(countdown.minutes).padStart(2, "0")}m : ${String(
+    countdown.seconds,
+  ).padStart(2, "0")}s`;
 
   return (
     <header className="fixed inset-x-0 top-[76px] z-50">
