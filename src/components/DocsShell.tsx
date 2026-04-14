@@ -52,7 +52,7 @@ export default function DocsShell({
 
         <div className="relative mx-auto max-w-7xl px-4 pb-20 sm:px-6 lg:px-8">
           <div className="grid gap-10 lg:grid-cols-[270px_minmax(0,1fr)] lg:items-start">
-            <aside className="lg:sticky lg:top-36">
+            <aside className="lg:sticky lg:top-36 hidden lg:block">
               <div className="site-panel rounded-[2rem] p-5 shadow-site">
                 <p className="text-[11px] font-semibold uppercase tracking-[0.28em] text-site-soft">
                   Documentation
@@ -105,6 +105,49 @@ export default function DocsShell({
             </aside>
 
             <div className="space-y-10">
+              <div className="lg:hidden site-panel rounded-[1.5rem] p-5 shadow-site">
+                <div className="mb-4 text-[11px] font-semibold uppercase tracking-[0.28em] text-site-soft">
+                  Documentation
+                </div>
+                <div className="grid grid-cols-1 gap-2 sm:grid-cols-3 mb-6">
+                  {pageLinks.map((link) => {
+                    const isActive = activePage === link.href;
+                    return (
+                      <Link
+                        key={link.href}
+                        href={link.href}
+                        className={`flex items-center justify-center gap-2 rounded-xl px-3 py-2 text-xs transition-colors ${
+                          isActive
+                            ? "bg-site-surface-active text-site-text"
+                            : "bg-site-surface text-site-muted hover:bg-site-surface-hover hover:text-site-text"
+                        }`}
+                      >
+                        <link.icon className="h-3 w-3" />
+                        {link.label}
+                      </Link>
+                    );
+                  })}
+                </div>
+                {sectionLinks.length > 0 && (
+                  <>
+                    <div className="mb-3 text-[11px] font-semibold uppercase tracking-[0.28em] text-site-soft border-t border-site-line pt-4">
+                      On this page
+                    </div>
+                    <div className="flex flex-wrap gap-2">
+                      {sectionLinks.map((section) => (
+                        <a
+                          key={section.href}
+                          href={section.href}
+                          className="rounded-full border border-site-line bg-site-surface px-3 py-1.5 text-[11px] font-medium text-site-muted transition-colors hover:bg-site-surface-hover hover:text-site-text"
+                        >
+                          {section.label}
+                        </a>
+                      ))}
+                    </div>
+                  </>
+                )}
+              </div>
+
               <section className="site-panel-strong relative overflow-hidden rounded-[2.25rem] p-8 shadow-site-glow sm:p-10">
                 <div className="site-dots absolute inset-y-0 right-0 w-1/2 opacity-20" />
                 <div className="site-radial-blue absolute right-[-5rem] top-[-6rem] h-72 w-72 blur-3xl" />

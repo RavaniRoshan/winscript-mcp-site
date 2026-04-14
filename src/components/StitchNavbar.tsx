@@ -76,7 +76,7 @@ export default function StitchNavbar() {
   ).padStart(2, "0")}s`;
 
   return (
-    <header className="fixed inset-x-0 top-[76px] z-50">
+    <header className="fixed inset-x-0 top-6 z-50">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="flex h-12 items-center justify-between rounded-[1.35rem] border border-site-line-strong bg-site-panel px-4 shadow-site backdrop-blur-xl">
           <div className="flex items-center gap-8">

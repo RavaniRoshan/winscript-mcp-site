@@ -140,8 +140,24 @@ export default function Home() {
             <p className="text-[11px] font-semibold uppercase tracking-[0.34em] text-site-accent-soft">
               Windows orchestration layer
             </p>
-            <div className="mt-6 inline-flex items-center rounded-full border border-site-line-strong bg-site-surface px-4 py-2 text-xs font-medium text-site-text/88">
-              v1.2.0 stable
+            <div className="mt-6 flex flex-wrap items-center gap-4">
+              <div className="inline-flex items-center rounded-full border border-site-line-strong bg-site-surface px-4 py-2 text-xs font-medium text-site-text/88">
+                v1.2.0 stable
+              </div>
+              <a
+                href="https://www.producthunt.com/products/winscript?embed=true&utm_source=badge-featured&utm_medium=badge&utm_campaign=badge-winscript"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex"
+              >
+                <img
+                  alt="WinScript - Windows native automation API via MCP for AI desktop control | Product Hunt"
+                  width={250}
+                  height={54}
+                  src="https://api.producthunt.com/widgets/embed-image/v1/featured.svg?post_id=1119785&theme=dark&t=1775917805859"
+                  className="h-9 w-auto"
+                />
+              </a>
             </div>
 
             <h1 className="mt-7 max-w-3xl text-balance text-[clamp(3.4rem,8vw,6.8rem)] font-semibold leading-[0.92] tracking-[-0.07em]">
@@ -222,7 +238,7 @@ export default function Home() {
               {stackNodes.map((node) => (
                 <div
                   key={node.label}
-                  className={`absolute ${node.className} rounded-full border border-site-line-strong bg-site-panel px-4 py-2 text-xs font-medium text-site-text shadow-site`}
+                  className={`absolute ${node.className} hidden sm:block rounded-full border border-site-line-strong bg-site-panel px-4 py-2 text-xs font-medium text-site-text shadow-site`}
                 >
                   {node.label}
                 </div>

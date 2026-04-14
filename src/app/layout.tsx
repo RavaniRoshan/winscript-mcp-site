@@ -37,7 +37,6 @@ export default function RootLayout({
         />
       </head>
       <body className="bg-site-bg font-sans antialiased text-site-text">
-        <ProductHuntLaunchStrip />
         {children}
       </body>
     </html>

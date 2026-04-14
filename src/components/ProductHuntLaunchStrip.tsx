@@ -50,7 +50,7 @@ export default function ProductHuntLaunchStrip() {
 
   return (
     <div className="sticky top-0 z-[60] border-b border-site-line-strong bg-site-panel-strong backdrop-blur-xl">
-      <div className="mx-auto flex min-h-[68px] w-full max-w-7xl flex-wrap items-center justify-between gap-3 px-4 py-2 sm:px-6 lg:px-8">
+      <div className="mx-auto flex min-h-[68px] w-full max-w-7xl flex-wrap items-center justify-center sm:justify-between gap-3 px-4 py-2 sm:px-6 lg:px-8">
         <p aria-live="polite" className="text-sm text-site-text">
           {countdown.isLive ? (
             <span className="font-medium text-site-accent-soft">

@@ -90,7 +90,7 @@ export default function DocsIntroduction() {
           host you already use.
         </p>
 
-        <div className="site-panel-strong mt-8 rounded-[1.8rem] p-6">
+        <div className="site-panel-strong mt-8 rounded-[1.8rem] p-6 overflow-x-auto">
           <div className="mb-3 flex items-center justify-between text-[11px] uppercase tracking-[0.24em] text-site-soft">
             <span>Terminal</span>
             <span>pip</span>
@@ -151,7 +151,7 @@ export default function DocsIntroduction() {
           and expose that tool through an MCP server for your agent runtime.
         </p>
 
-        <div className="site-panel-strong mt-8 rounded-[1.8rem] p-6">
+        <div className="site-panel-strong mt-8 rounded-[1.8rem] p-6 overflow-x-auto">
           <div className="mb-4 flex items-center justify-between border-b border-site-line pb-3 text-[11px] uppercase tracking-[0.24em] text-site-soft">
             <span>agent_config.py</span>
             <span>Python</span>

@@ -158,7 +158,7 @@ export default function APIReference() {
             unrecoverable UI state, blocked IPC channel, or missing surface.
           </p>
 
-          <div className="site-panel-strong mt-6 rounded-[1.5rem] p-5">
+          <div className="site-panel-strong mt-6 rounded-[1.5rem] p-5 overflow-x-auto">
             <pre className="text-xs leading-7 text-site-text sm:text-sm">
 {`try {
   await app.launch();

@@ -167,7 +167,7 @@ export default function Architecture() {
             evidence it needs to verify state, not just hope for it.
           </p>
 
-          <div className="site-panel-strong mt-8 rounded-[1.8rem] p-6">
+          <div className="site-panel-strong mt-8 rounded-[1.8rem] p-6 overflow-x-auto">
             <div className="mb-3 text-[11px] uppercase tracking-[0.24em] text-site-soft">
               Response payload
             </div>
