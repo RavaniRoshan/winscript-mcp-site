@@ -48,7 +48,7 @@ export default function DocsIntroduction() {
             <div className="site-dots absolute inset-0 opacity-10" />
             <div className="site-radial-blue absolute inset-[18%] rounded-full blur-3xl opacity-80" />
             <div className="grid gap-4 sm:grid-cols-2">
-              <div className="rounded-[1.5rem] border border-white/8 bg-white/[0.04] p-5">
+              <div className="rounded-[1.5rem] border border-site-line bg-site-surface p-5">
                 <Zap className="h-6 w-6 text-site-accent-soft" />
                 <h3 className="mt-5 text-lg font-semibold text-site-text">
                   Real-time response
@@ -58,7 +58,7 @@ export default function DocsIntroduction() {
                   wrappers between the model and the machine.
                 </p>
               </div>
-              <div className="rounded-[1.5rem] border border-white/8 bg-white/[0.04] p-5">
+              <div className="rounded-[1.5rem] border border-site-line bg-site-surface p-5">
                 <Shield className="h-6 w-6 text-site-accent-soft" />
                 <h3 className="mt-5 text-lg font-semibold text-site-text">
                   Recovery-aware
@@ -95,13 +95,13 @@ export default function DocsIntroduction() {
             <span>Terminal</span>
             <span>pip</span>
           </div>
-          <div className="overflow-x-auto rounded-2xl border border-white/8 bg-[#05070b] px-4 py-4 font-mono text-sm text-site-text">
+          <div className="overflow-x-auto rounded-2xl border border-site-line bg-site-bg-alt px-4 py-4 font-mono text-sm text-site-text">
             pip install winscript-mcp
           </div>
         </div>
 
         <div className="mt-8 grid gap-6 md:grid-cols-2">
-          <div className="rounded-[1.6rem] border border-white/8 bg-white/[0.03] p-6">
+          <div className="rounded-[1.6rem] border border-site-line bg-site-surface p-6">
             <p className="text-[11px] font-semibold uppercase tracking-[0.28em] text-site-soft">
               Requirements
             </p>
@@ -115,7 +115,7 @@ export default function DocsIntroduction() {
             </div>
           </div>
 
-          <div className="rounded-[1.6rem] border border-white/8 bg-white/[0.03] p-6">
+          <div className="rounded-[1.6rem] border border-site-line bg-site-surface p-6">
             <p className="text-[11px] font-semibold uppercase tracking-[0.28em] text-site-soft">
               Capabilities
             </p>
@@ -152,7 +152,7 @@ export default function DocsIntroduction() {
         </p>
 
         <div className="site-panel-strong mt-8 rounded-[1.8rem] p-6">
-          <div className="mb-4 flex items-center justify-between border-b border-white/8 pb-3 text-[11px] uppercase tracking-[0.24em] text-site-soft">
+          <div className="mb-4 flex items-center justify-between border-b border-site-line pb-3 text-[11px] uppercase tracking-[0.24em] text-site-soft">
             <span>agent_config.py</span>
             <span>Python</span>
           </div>

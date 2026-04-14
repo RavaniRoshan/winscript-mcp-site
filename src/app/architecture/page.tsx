@@ -91,7 +91,7 @@ export default function Architecture() {
           {pipeline.map((step, index) => (
             <div
               key={step.title}
-              className="relative rounded-[1.6rem] border border-white/8 bg-white/[0.03] p-6"
+              className="relative rounded-[1.6rem] border border-site-line bg-site-surface p-6"
             >
               <step.icon className="h-6 w-6 text-site-accent-soft" />
               <p className="mt-5 text-[11px] font-semibold uppercase tracking-[0.24em] text-site-soft">
@@ -108,7 +108,7 @@ export default function Architecture() {
         </div>
 
         <div className="mt-8 grid gap-6 md:grid-cols-3">
-          <div className="rounded-[1.6rem] border border-white/8 bg-white/[0.03] p-6">
+          <div className="rounded-[1.6rem] border border-site-line bg-site-surface p-6">
             <div className="flex items-center gap-3">
               <CheckCircle2 className="h-5 w-5 text-site-accent-soft" />
               <h3 className="text-lg font-semibold text-site-text">
@@ -122,7 +122,7 @@ export default function Architecture() {
             </p>
           </div>
 
-          <div className="rounded-[1.6rem] border border-white/8 bg-white/[0.03] p-6">
+          <div className="rounded-[1.6rem] border border-site-line bg-site-surface p-6">
             <div className="flex items-center gap-3">
               <ListChecks className="h-5 w-5 text-site-accent-soft" />
               <h3 className="text-lg font-semibold text-site-text">
@@ -135,7 +135,7 @@ export default function Architecture() {
             </p>
           </div>
 
-          <div className="rounded-[1.6rem] border border-white/8 bg-white/[0.03] p-6">
+          <div className="rounded-[1.6rem] border border-site-line bg-site-surface p-6">
             <div className="flex items-center gap-3">
               <Eye className="h-5 w-5 text-site-accent-soft" />
               <h3 className="text-lg font-semibold text-site-text">
@@ -196,7 +196,7 @@ export default function Architecture() {
             ].map((item) => (
               <div
                 key={item}
-                className="rounded-[1.5rem] border border-white/8 bg-white/[0.03] p-5"
+                className="rounded-[1.5rem] border border-site-line bg-site-surface p-5"
               >
                 <p className="text-sm leading-7 text-site-muted">{item}</p>
               </div>
@@ -216,19 +216,19 @@ export default function Architecture() {
           Driver model behind the runtime.
         </h2>
 
-        <div className="mt-8 overflow-x-auto rounded-[1.8rem] border border-white/8 bg-white/[0.03]">
+        <div className="mt-8 overflow-x-auto rounded-[1.8rem] border border-site-line bg-site-surface">
           <table className="w-full border-collapse text-left">
             <thead>
               <tr className="text-[11px] uppercase tracking-[0.24em] text-site-soft">
-                <th className="border-b border-white/8 px-5 py-4">Driver</th>
-                <th className="border-b border-white/8 px-5 py-4">Technology</th>
-                <th className="border-b border-white/8 px-5 py-4">Use case</th>
-                <th className="border-b border-white/8 px-5 py-4">Safety</th>
+                <th className="border-b border-site-line px-5 py-4">Driver</th>
+                <th className="border-b border-site-line px-5 py-4">Technology</th>
+                <th className="border-b border-site-line px-5 py-4">Use case</th>
+                <th className="border-b border-site-line px-5 py-4">Safety</th>
               </tr>
             </thead>
             <tbody>
               {drivers.map((driver) => (
-                <tr key={driver.name} className="border-b border-white/8 last:border-b-0">
+                <tr key={driver.name} className="border-b border-site-line last:border-b-0">
                   <td className="px-5 py-5 font-mono text-sm text-site-accent-soft">
                     {driver.name}
                   </td>
@@ -242,10 +242,10 @@ export default function Architecture() {
                     <span
                       className={`rounded-full px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.2em] ${
                         driver.safety === "CRITICAL"
-                          ? "bg-[rgba(170,56,56,0.2)] text-[#ffb4b4]"
+                          ? "bg-red-500/20 text-red-600 dark:text-red-400"
                           : driver.safety === "MEDIUM"
-                            ? "bg-[rgba(243,181,98,0.14)] text-site-warm"
-                            : "bg-[rgba(90,133,255,0.16)] text-site-accent-soft"
+                            ? "bg-site-warm/20 text-site-warm"
+                            : "bg-site-accent/20 text-site-accent"
                       }`}
                     >
                       {driver.safety}

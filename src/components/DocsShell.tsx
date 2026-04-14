@@ -69,8 +69,8 @@ export default function DocsShell({
                         href={link.href}
                         className={`flex items-center justify-between rounded-2xl px-4 py-3 text-sm transition-colors ${
                           isActive
-                            ? "bg-white/[0.08] text-site-text"
-                            : "text-site-muted hover:bg-white/[0.04] hover:text-site-text"
+                            ? "bg-site-surface-active text-site-text"
+                            : "text-site-muted hover:bg-site-surface hover:text-site-text"
                         }`}
                       >
                         <span className="inline-flex items-center gap-3">
@@ -85,7 +85,7 @@ export default function DocsShell({
                   })}
                 </div>
 
-                <div className="mt-6 border-t border-white/8 pt-6">
+                <div className="mt-6 border-t border-site-line pt-6">
                   <p className="text-[11px] font-semibold uppercase tracking-[0.28em] text-site-soft">
                     On this page
                   </p>
@@ -94,7 +94,7 @@ export default function DocsShell({
                       <a
                         key={section.href}
                         href={section.href}
-                        className="block rounded-xl px-3 py-2 text-sm text-site-muted transition-colors hover:bg-white/[0.04] hover:text-site-text"
+                        className="block rounded-xl px-3 py-2 text-sm text-site-muted transition-colors hover:bg-site-surface hover:text-site-text"
                       >
                         {section.label}
                       </a>
@@ -123,7 +123,7 @@ export default function DocsShell({
                     {badges.map((badge) => (
                       <span
                         key={badge}
-                        className="rounded-full border border-white/8 bg-white/[0.04] px-4 py-2 text-xs font-medium text-site-text/90"
+                        className="rounded-full border border-site-line bg-site-surface px-4 py-2 text-xs font-medium text-site-text/90"
                       >
                         {badge}
                       </span>

@@ -58,21 +58,21 @@ export default function APIReference() {
           the job and what recovery information needs to come back.
         </p>
 
-        <div className="mt-8 overflow-x-auto rounded-[1.8rem] border border-white/8 bg-white/[0.03]">
+        <div className="mt-8 overflow-x-auto rounded-[1.8rem] border border-site-line bg-site-surface">
           <table className="w-full border-collapse text-left">
             <thead>
               <tr className="text-[11px] uppercase tracking-[0.24em] text-site-soft">
-                <th className="border-b border-white/8 px-5 py-4">Primitive</th>
-                <th className="border-b border-white/8 px-5 py-4">Namespace</th>
-                <th className="border-b border-white/8 px-5 py-4">Description</th>
-                <th className="border-b border-white/8 px-5 py-4">Latency</th>
+                <th className="border-b border-site-line px-5 py-4">Primitive</th>
+                <th className="border-b border-site-line px-5 py-4">Namespace</th>
+                <th className="border-b border-site-line px-5 py-4">Description</th>
+                <th className="border-b border-site-line px-5 py-4">Latency</th>
               </tr>
             </thead>
             <tbody>
               {primitives.map((primitive) => (
                 <tr
                   key={primitive.primitive}
-                  className="border-b border-white/8 last:border-b-0"
+                  className="border-b border-site-line last:border-b-0"
                 >
                   <td className="px-5 py-5 text-sm font-medium text-site-text">
                     {primitive.primitive}
@@ -84,7 +84,7 @@ export default function APIReference() {
                     {primitive.description}
                   </td>
                   <td className="px-5 py-5">
-                    <span className="rounded-full border border-white/8 bg-white/[0.05] px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.2em] text-site-text">
+                    <span className="rounded-full border border-site-line bg-site-surface-hover px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.2em] text-site-text">
                       {primitive.latency}
                     </span>
                   </td>
@@ -120,7 +120,7 @@ export default function APIReference() {
           </p>
 
           <div className="mt-8 grid gap-4 md:grid-cols-2">
-            <div className="rounded-[1.5rem] border border-white/8 bg-white/[0.03] p-5">
+            <div className="rounded-[1.5rem] border border-site-line bg-site-surface p-5">
               <p className="text-[11px] font-semibold uppercase tracking-[0.24em] text-site-soft">
                 Implicit trust
               </p>
@@ -129,7 +129,7 @@ export default function APIReference() {
                 workspace is configured.
               </p>
             </div>
-            <div className="rounded-[1.5rem] border border-white/8 bg-white/[0.03] p-5">
+            <div className="rounded-[1.5rem] border border-site-line bg-site-surface p-5">
               <p className="text-[11px] font-semibold uppercase tracking-[0.24em] text-site-soft">
                 Scope bound
               </p>
@@ -193,7 +193,7 @@ export default function APIReference() {
           </div>
 
           <div className="space-y-6">
-            <div className="rounded-[1.5rem] border border-white/8 bg-white/[0.03] p-5">
+            <div className="rounded-[1.5rem] border border-site-line bg-site-surface p-5">
               <p className="text-[11px] font-semibold uppercase tracking-[0.24em] text-site-soft">
                 1. Request handles
               </p>
@@ -202,7 +202,7 @@ export default function APIReference() {
                 through the appropriate namespace before sending actions.
               </p>
             </div>
-            <div className="rounded-[1.5rem] border border-white/8 bg-white/[0.03] p-5">
+            <div className="rounded-[1.5rem] border border-site-line bg-site-surface p-5">
               <p className="text-[11px] font-semibold uppercase tracking-[0.24em] text-site-soft">
                 2. Prefer stable channels
               </p>
@@ -211,7 +211,7 @@ export default function APIReference() {
                 UI interaction as the control surface of last resort.
               </p>
             </div>
-            <div className="rounded-[1.5rem] border border-white/8 bg-white/[0.03] p-5">
+            <div className="rounded-[1.5rem] border border-site-line bg-site-surface p-5">
               <p className="text-[11px] font-semibold uppercase tracking-[0.24em] text-site-soft">
                 3. Bubble failures intentionally
               </p>

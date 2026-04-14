@@ -20,7 +20,7 @@ export default function Navbar() {
         <div className="flex lg:flex-1">
           <Link href="/" className="-m-1.5 p-1.5 flex items-center gap-2">
             <div className="w-8 h-8 bg-gradient-to-br from-blue-500 to-blue-700 rounded-lg flex items-center justify-center">
-              <span className="text-white font-bold text-sm">W</span>
+              <span className="text-site-text-strong font-bold text-sm">W</span>
             </div>
             <span className="text-xl font-bold text-slate-900">WinScript</span>
           </Link>
@@ -60,7 +60,7 @@ export default function Navbar() {
             href="https://github.com/RavaniRoshan/winscript-mcp#installation"
             target="_blank"
             rel="noopener noreferrer"
-            className="flex items-center gap-2 rounded-lg bg-blue-600 px-4 py-2 text-sm font-semibold text-white hover:bg-blue-700 transition-colors"
+            className="flex items-center gap-2 rounded-lg bg-blue-600 px-4 py-2 text-sm font-semibold text-site-text-strong hover:bg-blue-700 transition-colors"
           >
             Install
             <ExternalLink className="h-4 w-4" />
@@ -76,7 +76,7 @@ export default function Navbar() {
             <div className="flex items-center justify-between">
               <Link href="/" className="-m-1.5 p-1.5 flex items-center gap-2">
                 <div className="w-8 h-8 bg-gradient-to-br from-blue-500 to-blue-700 rounded-lg flex items-center justify-center">
-                  <span className="text-white font-bold text-sm">W</span>
+                  <span className="text-site-text-strong font-bold text-sm">W</span>
                 </div>
                 <span className="text-xl font-bold text-slate-900">
                   WinScript
@@ -118,7 +118,7 @@ export default function Navbar() {
                     href="https://github.com/RavaniRoshan/winscript-mcp#installation"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="-mx-3 block rounded-lg bg-blue-600 px-3 py-2.5 text-center text-base font-semibold leading-7 text-white hover:bg-blue-700"
+                    className="-mx-3 block rounded-lg bg-blue-600 px-3 py-2.5 text-center text-base font-semibold leading-7 text-site-text-strong hover:bg-blue-700"
                   >
                     Install WinScript
                   </a>
