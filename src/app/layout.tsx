@@ -21,6 +21,9 @@ export const metadata: Metadata = {
       "A Windows-native automation API for AI agents, packaged as an MCP server.",
     type: "website",
   },
+  other: {
+    "google-site-verification": "ey7QjhRubugKgcL0da7jKU84mc4gmNPXXh3FhhnMx-0",
+  },
 };
 
 export default function RootLayout({

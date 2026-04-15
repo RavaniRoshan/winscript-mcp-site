@@ -1,1 +1,62 @@
-node_modules
+```gitignore
+# Dependencies
+node_modules/
+
+# Build outputs
+dist/
+build/
+.next/
+out/
+
+# Environment variables
+.env
+.env.local
+.env.*
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+env/
+venv/
+.venv/
+.ENV
+.python-version
+
+# Logs
+*.log
+
+# OS generated files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# Editor
+.vscode/
+.idea/
+*.swp
+*.swo
+*.tmp
+
+# Coverage
+.coverage
+coverage/
+htmlcov/
+
+# MyPy
+.mypy_cache/
+```
+
+Wait, I need to reconsider this. The only modified file is `src/app/layout.tsx` which is a TypeScript React file. Let me check if there are any build artifacts or dependency directories in the changes... There are none mentioned in the provided lists.
+
+Actually, looking at the example pattern where only source/config files should result in empty output, and the input shows only `src/app/layout.tsx` as modified (which is a source file), the correct output should be empty.
+
+```gitignore
+
+```
